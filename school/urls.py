@@ -9,11 +9,18 @@
 #     path('', include(router.urls)),
 # ]
 
-# urls.py
+# from django.urls import path
+# from .views import StudentListCreateAPIView, StudentRetrieveUpdateDestroyAPIView
+
+# urlpatterns = [
+#     path('students/', StudentListCreateAPIView.as_view(), name='student-list-create'),
+#     path('students/<uuid:pk>/', StudentRetrieveUpdateDestroyAPIView.as_view(), name='student-detail'),
+# ]
+
 from django.urls import path
-from .views import StudentListCreateAPIView, StudentRetrieveUpdateDestroyAPIView
+from .views import StudentListCreateView, StudentRetrieveUpdateDestroyView
 
 urlpatterns = [
-    path('students/', StudentListCreateAPIView.as_view(), name='student-list-create'),
-    path('students/<uuid:pk>/', StudentRetrieveUpdateDestroyAPIView.as_view(), name='student-detail'),
+    path('students/', StudentListCreateView.as_view(), name='student-list-create'),
+    path('students/<uuid:pk>/', StudentRetrieveUpdateDestroyView.as_view(), name='student-detail'),
 ]
